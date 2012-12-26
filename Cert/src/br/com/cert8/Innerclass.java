@@ -13,7 +13,10 @@ abstract public class Innerclass {
 	public static void main(String[] args) {
 		A a = new C();
 		a.asd();
+		
 		Abc abc = new Teste.Abc();
+		System.out.println(abc.e);
+		
 		Abc abc2 = new Abc();
 	}
 	
