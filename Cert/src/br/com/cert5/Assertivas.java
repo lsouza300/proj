@@ -35,14 +35,14 @@ public class Assertivas {
 	 * @param a
 	 */
 	private void go(int a){
-		assert (a > 3) : "A não é maior que 3. Interrupcao via assert.";
+		assert (a > 3) : "A nao eh maior que 3. Interrupcao via assert.";
 		
 		System.out.println("Como 'a' estah ok, a execucao chega ate aqui em go().");
 	}
 	
 	public void go2(int a) throws IllegalArgumentException{
 		if (a <= 3){
-			throw new IllegalArgumentException("Var com valor incorreto");
+			throw new IllegalArgumentException("Var com valor incorreto. Parametro a deve ser menor ou igual a 3.");
 		}
 		System.out.println("Como 'a' estah ok, a execucao chega ate aqui em go2().");
 		
@@ -86,13 +86,19 @@ public class Assertivas {
 		int x = 4;
 		int y = 1;
 		assert(x > 3): "";
-		assert(x > 3): new Integer("5");
+		Integer x3 ;
+		assert(x > 3): x3 = new Integer("5");
 		assert(x > 3): metodoQualquer();
 		assert(x > 3): y = 2;
 		
-		// invalido
+		// invalido - nao aceita declaracoes apos o assert
 		// assert(x > 3): int yy = 2;
+		
+		// invalido - nao retorna nenhuma informacao
+		// assert(x > 3): outroMetodoAinda();
 	}
 	
 	Object metodoQualquer() { return new Object(); }
+	
+	void outroMetodoAinda() { }
 }
